@@ -3,599 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decreto 0572 de 2025 - Nuevas Tarifas de Retención en la Fuente</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <title>Guía Interactiva: Decreto 0572 de 2025</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0055a4;
+            --accent-color: #fdb913;
+            --light-gray: #f4f4f4;
+            --dark-gray: #333;
+            --text-color: #333;
+        }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
+            background-color: #fff;
         }
-        
-        .gradient-bg {
-    background: linear-gradient(135deg, #a3bffa 0%, #c3a9f4 100%); /* Tonos más claros */
-	}
-        
-        .card-shadow {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
         }
-        
-        .table-responsive {
-            overflow-x: auto;
+        .header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
         }
-        
-        .highlight-row {
-            background: linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%);
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
-        
-        .uvt-badge {
-            background: linear-gradient(45deg, #10b981, #059669);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
-        
-        .tariff-badge {
-            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .section {
+            padding: 40px 0;
         }
-        
-        .ciiu-badge {
-            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .section:nth-child(even) {
+            background: var(--light-gray);
         }
-        
-        .money-format {
-            font-family: 'Courier New', monospace;
-            font-weight: 600;
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
         }
-        
-        .section-divider {
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-            margin: 2rem 0;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: var(--light-gray);
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            background: #fff;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #searchInput {
+            width: 70%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        #resultsContainer {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .result-item {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .result-item .info {
+            text-align: left;
+        }
+        .result-item .code {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .result-item .rate {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: var(--light-gray);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        .card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        .card .description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .checklist li {
+            background: var(--light-gray);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--accent-color);
+        }
+        .footer {
+            background: var(--dark-gray);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center min-h-[240px]">
-                <div class="flex items-center text-left flex-1">
-                    <div>
-                        <h1 class="text-4xl font-bold mb-2">Decreto 0572 de 2025</h1>
-                        <p class="text-xl opacity-90">Nuevas Tarifas de Retención en la Fuente</p>
-                        <p class="text-sm opacity-80 mt-2">Elaborado por: 👨🏽‍💻 CP. AUGUSTO CÁRDENAS | 📧 augustoccardenas@gmail.com | ☎️ 321 8168328</p>
-                    </div>
-                </div>
-                <div class="flex-shrink-0 ml-8">
-                    <img src="Logo GESCONT transparencia.png" alt="GESCONT Logo" class="h-40 w-auto max-h-40">
-                </div>
-            </div>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Guía Interactiva del Decreto 0572 de 2025</h1>
+            <p>Entiende los cambios en Autorretención y Retención en la Fuente que aplican desde el 1 de junio de 2025.</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        
-        <!-- Overview Section -->
-        <section class="mb-12">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-info-circle text-blue-600 mr-3"></i>
-                    Información General
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Objetivo Principal</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Modernizar y actualizar las tarifas de autorretención y bases mínimas para la práctica de retención en la fuente, 
-                            adecuando el recaudo tributario a la realidad económica del país y mejorando la equidad fiscal.
-                        </p>
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Principales Cambios</h2>
+                <div class="tabs">
+                    <button class="tab-button active" onclick="openTab(event, 'autorretencion')">Nuevas Tarifas de Autorretención</button>
+                    <button class="tab-button" onclick="openTab(event, 'bases')">Nuevas Bases de Retención</button>
+                </div>
+
+                <div id="autorretencion" class="tab-content active">
+                    <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;">El cambio más importante es la actualización de las tarifas de autorretención especial de renta. Cada empresa debe aplicar una tarifa específica según su actividad económica (CIIU). Usa nuestro buscador para encontrar tu nueva tarifa.</p>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" onkeyup="filterResults()" placeholder="Busca por código CIIU o palabra clave (ej: 'construcción', 'software', '7210')...">
                     </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Fechas Importantes</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <i class="fas fa-calendar text-green-600 mr-2"></i>
-                                <span class="text-gray-600"><strong>Publicación:</strong> 28 de mayo de 2025</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-play-circle text-blue-600 mr-2"></i>
-                                <span class="text-gray-600"><strong>Vigencia:</strong> 1 de junio de 2025</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-orange-600 mr-2"></i>
-                                <span class="text-gray-600"><strong>Transición:</strong> Hasta 31 de mayo (régimen anterior)</span>
-                            </div>
+                    <div id="resultsContainer"></div>
+                </div>
+
+                <div id="bases" class="tab-content">
+                     <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;">El decreto reduce las cuantías mínimas para que un comprador aplique la retención en la fuente a sus proveedores. Esto significa que más transacciones estarán sujetas a retención.</p>
+                    <div class="grid">
+                        <div class="card">
+                            <h3>Servicios</h3>
+                            <div class="value"> > 2 UVT</div>
+                            <p class="description">Cualquier pago por servicios que supere este monto estará sujeto a retención.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Compras Generales</h3>
+                            <div class="value"> > 10 UVT</div>
+                            <p class="description">Se debe practicar retención en la compra de bienes que excedan esta cuantía.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Bienes Raíces (Vivienda)</h3>
+                            <div class="value">1% y 2.5%</div>
+                            <p class="description">1% hasta 10.000 UVT y 2.5% sobre el exceso del valor del inmueble.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Sector Agropecuario</h3>
+                            <div class="value">> 70 UVT</div>
+                            <p class="description">Base mínima para la compra de productos agrícolas y pecuarios sin procesamiento industrial.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- UVT Value Section -->
-        <section class="mb-12">
-            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg card-shadow p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-calculator text-green-600 mr-3"></i>
-                    Valor UVT 2025
-                </h2>
-                
-                <div class="text-center">
-                    <div class="inline-block bg-white rounded-lg p-6 card-shadow">
-                        <div class="text-5xl font-bold text-green-600 mb-2 money-format">$49.799</div>
-                        <div class="text-gray-600 text-lg">Unidad de Valor Tributario (UVT) - 2025</div>
-                        <div class="text-sm text-gray-500 mt-2">Resolución DIAN No. 000193 del 4 de diciembre de 2024</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Table Section -->
-        <section class="mb-12">
-            <div class="bg-white rounded-lg card-shadow overflow-hidden">
-                <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                    <h2 class="text-3xl font-bold flex items-center">
-                        <i class="fas fa-table text-white mr-3"></i>
-                        Bases y Tarifas de Retención en la Fuente
-                    </h2>
-                    <p class="text-blue-100 mt-2">Comparación entre régimen anterior y nuevo</p>
-                </div>
-                
-                <div class="table-responsive">
-                    <table class="w-full text-sm">
-                        <thead class="bg-gray-100">
-                            <tr>
-                                <th class="px-4 py-4 text-left font-semibold text-gray-800 border-b-2 border-gray-200">Concepto</th>
-                                <th class="px-4 py-4 text-center font-semibold text-gray-800 border-b-2 border-gray-200 bg-red-50" colspan="3">
-                                    Bases y Tarifas hasta el 31 de Mayo
-                                </th>
-                                <th class="px-4 py-4 text-center font-semibold text-gray-800 border-b-2 border-gray-200 bg-green-50" colspan="3">
-                                    Bases y Tarifas desde el 1 de Junio
-                                </th>
-                            </tr>
-                            <tr class="bg-gray-50">
-                                <th class="px-4 py-3 text-left text-xs text-gray-600 border-b border-gray-200"></th>
-                                <th class="px-4 py-3 text-center text-xs text-gray-600 border-b border-gray-200 bg-red-50">Base (UVT)</th>
-                                <th class="px-4 py-3 text-center text-xs text-gray-600 border-b border-gray-200 bg-red-50">Base $</th>
-                                <th class="px-4 py-3 text-center text-xs text-gray-600 border-b border-gray-200 bg-red-50">Tarifa</th>
-                                <th class="px-4 py-3 text-center text-xs text-gray-600 border-b border-gray-200 bg-green-50">Base (UVT)</th>
-                                <th class="px-4 py-3 text-center text-xs text-gray-600 border-b border-gray-200 bg-green-50">Base $</th>
-                                <th class="px-4 py-3 text-center text-xs text-gray-600 border-b border-gray-200 bg-green-50">Tarifa</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4 font-medium text-gray-800">Servicios profesionales</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">4</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$199.196</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">4,0%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">2</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$99.598</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">4,0%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compras de bienes agropecuarios (sin procesamiento)</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">92</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$4.581.508</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">1,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">70</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$3.485.930</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">1,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compras de café pergamino/cereza</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">160</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$7.967.840</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">0,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">70</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$3.485.930</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">0,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compras de oro</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">4</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$199.196</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">1</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$49.799</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compra de inmueble para vivienda hasta 10.000 UVT</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">20000</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$995.980.000</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">1,0%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">10000</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$497.990.000</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">1,0%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compra de inmueble para vivienda más de 10.000 UVT</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">20000</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$995.980.000</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">10000</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$497.990.000</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compra de inmueble uso distinto a vivienda</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">0</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$0</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">0</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$0</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compras de bienes (generales) declarantes</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">27</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$1.344.573</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">10</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$497.990</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">2,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4 font-medium text-gray-800">Compras de bienes (generales) no declarantes</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">27</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$1.344.573</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">3,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">10</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$497.990</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">3,5%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-4 font-medium text-gray-800">Pagos por emolumentos eclesiásticos declarantes</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">27</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$1.344.573</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">4,0%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">10</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$497.990</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">4,0%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-4 font-medium text-gray-800">Pagos por emolumentos eclesiásticos no declarantes</td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">27</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$1.344.573</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">3,5%</span></td>
-                                <td class="px-4 py-4 text-center"><span class="uvt-badge">10</span></td>
-                                <td class="px-4 py-4 text-center money-format text-gray-700">$497.990</td>
-                                <td class="px-4 py-4 text-center"><span class="tariff-badge">3,5%</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Changes Section -->
-        <section class="mb-12">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-chart-line text-green-600 mr-3"></i>
-                    Principales Cambios
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-green-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-green-800 mb-4 flex items-center">
-                            <i class="fas fa-arrow-down text-green-600 mr-2"></i>
-                            Reducciones Significativas
-                        </h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Servicios profesionales: de 4 UVT a 2 UVT</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Bienes agropecuarios: de 92 UVT a 70 UVT</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Café pergamino: de 160 UVT a 70 UVT</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Compras de oro: de 4 UVT a 1 UVT</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
-                            <i class="fas fa-balance-scale text-blue-600 mr-2"></i>
-                            Mantenimiento de Tarifas
-                        </h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-equals text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Servicios profesionales: 4,0%</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-equals text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Bienes agropecuarios: 1,5%</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-equals text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Café pergamino: 0,5%</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-equals text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-700">Oro: 2,5%</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CIIU Codes Section -->
-        <section class="mb-12">
-            <div class="bg-white rounded-lg card-shadow overflow-hidden">
-                <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6">
-                    <h2 class="text-3xl font-bold flex items-center">
-                        <i class="fas fa-industry text-white mr-3"></i>
-                        Tarifas de Autorretención por Actividad Económica (CIIU)
-                    </h2>
-                    <p class="text-purple-100 mt-2">Clasificación Internacional Industrial Uniforme - Rev. 4 A.C. 2020</p>
-                </div>
-                
-                <div class="table-responsive">
-                    <table class="w-full text-sm">
-                        <thead class="bg-gray-100">
-                            <tr>
-                                <th class="px-4 py-4 text-center font-semibold text-gray-800 border-b-2 border-gray-200">Código CIIU</th>
-                                <th class="px-4 py-4 text-left font-semibold text-gray-800 border-b-2 border-gray-200">Actividad Económica</th>
-                                <th class="px-4 py-4 text-center font-semibold text-gray-800 border-b-2 border-gray-200">Tarifa Autorretención</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">111</span></td>
-                                <td class="px-4 py-3 text-gray-800">Cultivo de cereales (excepto arroz), legumbres y semillas oleaginosas</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">112</span></td>
-                                <td class="px-4 py-3 text-gray-800">Cultivo de arroz</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">113</span></td>
-                                <td class="px-4 py-3 text-gray-800">Cultivo de hortalizas, raíces y tubérculos</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">123</span></td>
-                                <td class="px-4 py-3 text-gray-800">Cultivo de café</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">125</span></td>
-                                <td class="px-4 py-3 text-gray-800">Cultivo de flor de corte</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">210</span></td>
-                                <td class="px-4 py-3 text-gray-800">Silvicultura y otras actividades forestales</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">0,55%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">510</span></td>
-                                <td class="px-4 py-3 text-gray-800">Extracción de hulla (carbón de piedra)</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">4,50%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">520</span></td>
-                                <td class="px-4 py-3 text-gray-800">Extracción de carbón lignito</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">2,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">610</span></td>
-                                <td class="px-4 py-3 text-gray-800">Extracción de petróleo crudo</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">2,70%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">1061</span></td>
-                                <td class="px-4 py-3 text-gray-800">Trilla de café</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">1062</span></td>
-                                <td class="px-4 py-3 text-gray-800">Descafeinado, tostión y molienda del café</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,20%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">2910</span></td>
-                                <td class="px-4 py-3 text-gray-800">Fabricación de vehículos automotores y sus motores</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">0,55%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">3511</span></td>
-                                <td class="px-4 py-3 text-gray-800">Generación de energía eléctrica</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">4,50%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">4321</span></td>
-                                <td class="px-4 py-3 text-gray-800">Instalaciones eléctricas</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,10%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">4711</span></td>
-                                <td class="px-4 py-3 text-gray-800">Comercio al por menor en establecimientos no especializados</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">0,55%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">4741</span></td>
-                                <td class="px-4 py-3 text-gray-800">Comercio al por menor de computadores y equipos de telecomunicaciones</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">0,55%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">5411</span></td>
-                                <td class="px-4 py-3 text-gray-800">Servicios profesionales, científicos y técnicos n.c.p.</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,10%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">6202</span></td>
-                                <td class="px-4 py-3 text-gray-800">Consultoría informática y administración de sistemas informáticos</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,10%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">8621</span></td>
-                                <td class="px-4 py-3 text-gray-800">Actividades de la práctica médica, sin internación</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">1,10%</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 highlight-row">
-                                <td class="px-4 py-3 text-center"><span class="ciiu-badge">9321</span></td>
-                                <td class="px-4 py-3 text-gray-800">Actividades de parques de atracciones y parques temáticos</td>
-                                <td class="px-4 py-3 text-center"><span class="tariff-badge">3,50%</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="p-4 bg-gray-50 border-t">
-                    <p class="text-sm text-gray-600 text-center">
-                        <i class="fas fa-info-circle mr-2"></i>
-                        Esta tabla muestra una selección representativa. El decreto incluye tarifas específicas para más de 100 códigos CIIU diferentes.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Implementation Section -->
-        <section class="mb-12">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-cogs text-purple-600 mr-3"></i>
-                    Implementación y Transición
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="bg-red-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-calendar-times text-red-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Hasta 31 de Mayo</h3>
-                        <p class="text-gray-600 text-sm">Aplicación del régimen anterior con las bases y tarifas vigentes hasta esa fecha</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="bg-yellow-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-exchange-alt text-yellow-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Transición</h3>
-                        <p class="text-gray-600 text-sm">Cambio automático sin solapamiento entre regímenes. Aplicación inmediata</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="bg-green-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-calendar-check text-green-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Desde 1 de Junio</h3>
-                        <p class="text-gray-600 text-sm">Entrada en vigencia plena del nuevo régimen con bases y tarifas actualizadas</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Additional Information -->
-        <section class="mb-12">
-            <div class="bg-white rounded-lg card-shadow p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-exclamation-triangle text-orange-600 mr-3"></i>
-                    Disposiciones Especiales
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Entidades Cubiertas</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-building text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Autorretenedores estatales</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-industry text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Sociedades de economía mixta</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-newspaper text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Empresas editoriales</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chart-pie text-blue-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Fondos de inversión colectiva</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Consideraciones Técnicas</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-calculator text-purple-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Clasificación por códigos CIIU Rev. 4 A.C. 2020</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-file-contract text-purple-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Reglas especiales para contratos de mandato</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-coins text-purple-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Disposiciones para CDATs</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-gavel text-purple-600 mr-2 mt-1"></i>
-                                <span class="text-gray-600">Régimen sancionatorio del Estatuto Tributario</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">¿Qué Debes Hacer Ahora?</h2>
+                <ul class="checklist">
+                    <li>✅ <strong>Verifica tu Código CIIU:</strong> Confirma cuál es el código de la actividad económica principal de tu empresa.</li>
+                    <li>✅ <strong>Identifica tu Tarifa:</strong> Usa el buscador en esta página para conocer tu nueva tarifa de autorretención.</li>
+                    <li>✅ <strong>Actualiza tus Sistemas:</strong> Ajusta tu software de facturación y contabilidad para aplicar la nueva tarifa y las nuevas bases de retención a partir del 1 de junio de 2025.</li>
+                    <li>✅ <strong>Comunica a tu Equipo:</strong> Asegúrate que tu equipo financiero y contable conozca y aplique estos cambios.</li>
+                    <li>✅ <strong>Consulta a tu Contador:</strong> Es fundamental que recibas asesoría profesional para analizar el impacto específico en tu empresa.</li>
+                </ul>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <i class="fas fa-balance-scale text-3xl mb-2"></i>
-                <p class="text-lg font-semibold">Decreto 0572 de 2025</p>
-                <p class="text-sm opacity-80">Ministerio de Hacienda y Crédito Público</p>
-            </div>
-            <div class="border-t border-white border-opacity-20 pt-4">
-                <p class="text-xs opacity-70">
-                    Esta infografía presenta los aspectos más relevantes del Decreto 0572 de 2025. 
-                    Para consultar el texto completo y oficial, diríjase a las fuentes oficiales del Gobierno de Colombia.
-                </p>
-                <p class="text-xs opacity-70 mt-2">
-                    UVT 2025: $49.799 - Todos los cálculos basados en el valor oficial establecido por la DIAN
-                </p>
-            </div>
-        </div>
+    <footer class="footer">
+        <p>Este es un resumen didáctico y una herramienta de consulta. La información no reemplaza la asesoría tributaria profesional. Consulta siempre el texto oficial del decreto y a tu contador.</p>
     </footer>
 
+    <script>
+        const ciiuData = [
+            { code: '111', activity: 'Cultivo de cereales (excepto arroz), legumbres y semillas oleaginosas', rate: '1,20%' },
+            { code: '123', activity: 'Cultivo de café', rate: '1,20%' },
+            { code: '510', activity: 'Extracción de hulla (carbón de piedra)', rate: '4,50%' },
+            { code: '610', activity: 'Extracción de petróleo crudo', rate: '2,70%' },
+            { code: '620', activity: 'Extracción de gas natural', rate: '4,50%' },
+            { code: '1071', activity: 'Elaboración y refinación de azúcar', rate: '1,20%' },
+            { code: '3511', activity: 'Generación de energía eléctrica', rate: '4,50%' },
+            { code: '3514', activity: 'Comercialización de energía eléctrica', rate: '4,50%' },
+            { code: '4111', activity: 'Construcción de edificios residenciales', rate: '3,50%' },
+            { code: '4112', activity: 'Construcción de edificios no residenciales', rate: '1,10%' },
+            { code: '4210', activity: 'Construcción de carreteras y vías de ferrocarril', rate: '3,50%' },
+            { code: '4511', activity: 'Comercio de vehículos automotores nuevos', rate: '0,55%' },
+            { code: '4923', activity: 'Transporte de carga por carretera', rate: '3,50%' },
+            { code: '5511', activity: 'Alojamiento en hoteles', rate: '1,10%' },
+            { code: '5611', activity: 'Expendio a la mesa de comidas preparadas', rate: '3,50%' },
+            { code: '5820', activity: 'Edición de programas de informática (software)', rate: '1.10%' },
+            { code: '6201', activity: 'Actividades de desarrollo de sistemas informáticos (planificación, análisis, diseño, programación, pruebas)', rate: '1,10%' },
+            { code: '6202', activity: 'Actividades de consultoría informática y actividades de administración de instalaciones informáticas', rate: '1,10%' },
+            { code: '6312', activity: 'Portales web', rate: '1.10%' },
+            { code: '6412', activity: 'Bancos comerciales', rate: '1,10%' },
+            { code: '6810', activity: 'Actividades inmobiliarias realizadas con bienes propios o arrendados', rate: '3,50%' },
+            { code: '6910', activity: 'Actividades jurídicas', rate: '1,10%' },
+            { code: '6920', activity: 'Actividades de contabilidad, teneduría de libros, auditoría financiera y asesoría tributaria', rate: '1,10%' },
+            { code: '7112', activity: 'Actividades de ingeniería y otras actividades conexas de consultoría técnica', rate: '1,10%' },
+            { code: '7310', activity: 'Publicidad', rate: '1,10%' },
+            { code: '8544', activity: 'Educación de universidades', rate: '1,10%' },
+            { code: '8621', activity: 'Actividades de la práctica médica, sin internación', rate: '1,10%' },
+            // Add all other CIIU codes from the decree here for a complete tool
+        ];
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function renderResults(data) {
+            const container = document.getElementById('resultsContainer');
+            container.innerHTML = '';
+            if (data.length === 0) {
+                container.innerHTML = '<p style="text-align: center;">No se encontraron resultados. Intenta con otro término.</p>';
+                return;
+            }
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                div.innerHTML = `
+                    <div class="info">
+                        <div class="code">CIIU ${item.code}</div>
+                        <div>${item.activity}</div>
+                    </div>
+                    <div class="rate">${item.rate}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function filterResults() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const filteredData = ciiuData.filter(item => {
+                return item.activity.toLowerCase().includes(filter) || item.code.includes(filter);
+            });
+            renderResults(filteredData);
+        }
+
+        // Initial render
+        renderResults(ciiuData.slice(0, 10)); // Show first 10 results initially
+    </script>
 </body>
 </html>
